@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rowing boat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+    <script src="/js/style.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+</head>
+<body>
+<!--Nav-bar-->
+<div class="nav">
+    <button type="button" class="btn btn-success disabled"><a href="#enter">Enter Boat Information</a></button>
+    <button type="button" class="btn btn-success disabled"><a href="#start2" >Start Trip</a></button>
+    <button type="button" class="btn btn-success disabled"><a href="#geust" >Geust Information</a></button>
+</div>
+<!--Header-->
+<header class="header">
+    <img src="https://www.waterwaysholidays.com/images/cruiser_thames.jpg">
+
+    <h1>Hiring and reserving</h1>
+    <h2>mangement</h2>
+
+</header>
+<!--Boet information-->
+<a id="enter"></a>
+<h3>Enter Boat Information</h3>
+
+<div class="myDiv">
+    <label class="col-form-label" for="inputDefault">Boat Type:</label>
+    <input class="form-control" id="typeBoat" type="text">
+
+
+
+
+    <label class="col-form-label" for="inputDefault">MinimumPrice:</label>
+    <input class="form-control" id="minimumPrice" type="number">
+
+
+
+
+    <label class="col-form-label" for="inputDefault">ActualPrice:</label>
+    <input class="form-control" id="actualPrice" type="number">
+
+
+
+
+    <label class="col-form-label" for="inputDefault">BoatNumber :</label>
+    <input class="form-control" id="boatNumber" type="number">
+
+
+
+
+
+    <label class="col-form-label" for="inputDefault">SeatsNumber:</label>
+    <input class="form-control" id="seatsNumber" type="number">
+
+</div>
+
+<div id="buttons">
+    <button id="add" class="btn btn-success disabled" type="button">Add Boat</button>
+</div>
+
+<div class="tab">
+    <table class="table table-hover" id="boatform">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Boat Type</th>
+            <th scope="col">MinimumPrice</th>
+            <th scope="col">ActualPrice</th>
+            <th scope="col">BoatNumber</th>
+            <th scope="col">SeatsNumber</th>
+        </tr>
+        </thead>
+        <tbody id="boatlist">
+
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="confirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Cconfirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="delete">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Start trip-->
+
+<a id="start2"></a>
+<h1>Start Trip</h1>
+<div id="buttons1">
+    <button id="start" class="btn btn-success disabled" type="button">Start Trip</button>
+</div>
+
+<div>
+    <label class="col-form-label" for="inputDefault">Number Of Persons:</label>
+    <input class="form-control" id="numberOfPersoon" type="number">
+
+    <label class="col-form-label" for="inputDefault">Number of Boats:</label>
+    <input class="form-control" id="numberOfBoat" type="number">
+</div>
+
+<div class="tab">
+    <table class="table table-hover" id="tripform">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">numberOfPersoon</th>
+            <th scope="col">numberOfBoat</th>
+            <th scope="col">Duration</th>
+        </tr>
+        </thead>
+        <tbody id="triplist">
+
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="confirm1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Stop Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="stop">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a id="geust"></a>
+<!--Geust information-->
+<h1>Geust Information</h1>
+<div id="buttons2">
+    <button id="addgeust" class="btn btn-success disabled" type="button">Show Geust Information</button>
+</div>
+
+<div >
+    <label class="col-form-label" for="inputDefault">Name Of Geust:</label>
+    <input class="form-control" id="name" type="text">
+
+    <label class="col-form-label" for="inputDefault">ID Number:</label>
+    <input class="form-control" id="idNumber" type="number">
+
+    <label class="col-form-label" for="inputDefault">Phone Number:</label>
+    <input class="form-control" id="phone" type="number">
+
+</div>
+
+<div class="tab">
+    <table class="table table-hover" id="geustform">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Geust Name</th>
+            <th scope="col">ID Number</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+        </thead>
+        <tbody id="geustlist">
+
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="confirm2" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Confirmation1</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="delete1">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<footer class="footer">
+    <p>All right reseved 2020</p>
+    <p> Design by Abdalrhman Almoustafa</p>
+</footer>
+</body>
+
+</html>
